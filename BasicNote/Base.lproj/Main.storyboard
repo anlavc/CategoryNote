@@ -11,17 +11,45 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorite-->
+        <!--Category-->
         <scene sceneID="px0-Uk-di0">
             <objects>
-                <viewController id="zES-Cb-wa3" sceneMemberID="viewController">
+                <viewController id="zES-Cb-wa3" customClass="CategoryWaterFallViewController" customModule="BasicNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KUu-jZ-tm3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iIA-Vx-lo5">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gGK-uP-WIc">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cGN-FA-yY7">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2bI-C4-OU2">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Tmb-B4-8gw"/>
                         <color key="backgroundColor" name="bgColor"/>
+                        <constraints>
+                            <constraint firstItem="Tmb-B4-8gw" firstAttribute="trailing" secondItem="iIA-Vx-lo5" secondAttribute="trailing" id="Dys-dL-w4w"/>
+                            <constraint firstItem="iIA-Vx-lo5" firstAttribute="top" secondItem="Tmb-B4-8gw" secondAttribute="top" id="Ncc-KH-2cw"/>
+                            <constraint firstItem="Tmb-B4-8gw" firstAttribute="bottom" secondItem="iIA-Vx-lo5" secondAttribute="bottom" id="cx9-tw-z5e"/>
+                            <constraint firstItem="iIA-Vx-lo5" firstAttribute="leading" secondItem="Tmb-B4-8gw" secondAttribute="leading" id="qgV-Al-Obj"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorite" id="8Y1-Rm-t5j">
+                    <tabBarItem key="tabBarItem" title="Category" id="8Y1-Rm-t5j">
                         <imageReference key="image" image="star" catalog="system" renderingMode="hierarchical-single">
                             <hierarchicalColors>
                                 <color systemColor="labelColor"/>
@@ -31,6 +59,9 @@
                         </imageReference>
                         <color key="badgeColor" name="tabBarIconColor"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="collectionWall" destination="iIA-Vx-lo5" id="iq9-Is-KCZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5wE-Vy-X8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

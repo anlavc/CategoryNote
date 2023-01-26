@@ -21,6 +21,9 @@
 		EEA4DB73297725DA00800D5A /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA4DB71297725DA00800D5A /* TableViewCell.xib */; };
 		EEC448B22979C928003C79F6 /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = EEC448B12979C928003C79F6 /* iOSDropDown */; };
 		EECA4789297E754900B976BB /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EECA4788297E754900B976BB /* IQKeyboardManagerSwift */; };
+		EEF4ED6A2982B19500C15AA0 /* CategoryWaterFallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4ED692982B19500C15AA0 /* CategoryWaterFallViewController.swift */; };
+		EEF4ED712982B2E800C15AA0 /* WaterFallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4ED6F2982B2E800C15AA0 /* WaterFallCollectionViewCell.swift */; };
+		EEF4ED722982B2E800C15AA0 /* WaterFallCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF4ED702982B2E800C15AA0 /* WaterFallCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		EEA4DB6C297723CA00800D5A /* NoteAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAddViewController.swift; sourceTree = "<group>"; };
 		EEA4DB70297725DA00800D5A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		EEA4DB71297725DA00800D5A /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		EEF4ED692982B19500C15AA0 /* CategoryWaterFallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryWaterFallViewController.swift; sourceTree = "<group>"; };
+		EEF4ED6F2982B2E800C15AA0 /* WaterFallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallCollectionViewCell.swift; sourceTree = "<group>"; };
+		EEF4ED702982B2E800C15AA0 /* WaterFallCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaterFallCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 		EE7957FD2974379000AF9162 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EEF4ED682982B17500C15AA0 /* Category */,
 				EE795804297438E700AF9162 /* Home */,
 				EEA4DB6F297725B900800D5A /* Note */,
 			);
@@ -153,6 +160,16 @@
 			path = Note;
 			sourceTree = "<group>";
 		};
+		EEF4ED682982B17500C15AA0 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				EEF4ED692982B19500C15AA0 /* CategoryWaterFallViewController.swift */,
+				EEF4ED6F2982B2E800C15AA0 /* WaterFallCollectionViewCell.swift */,
+				EEF4ED702982B2E800C15AA0 /* WaterFallCollectionViewCell.xib */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE9474A12974332300DDBA6C /* LaunchScreen.storyboard in Resources */,
+				EEF4ED722982B2E800C15AA0 /* WaterFallCollectionViewCell.xib in Resources */,
 				EEA4DB73297725DA00800D5A /* TableViewCell.xib in Resources */,
 				EE94749E2974332300DDBA6C /* Assets.xcassets in Resources */,
 				EE79580A2974390900AF9162 /* CategoryCollectionViewCell.xib in Resources */,
@@ -234,10 +252,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEF4ED712982B2E800C15AA0 /* WaterFallCollectionViewCell.swift in Sources */,
 				EE7958092974390900AF9162 /* CategoryCollectionViewCell.swift in Sources */,
 				EEA4DB6D297723CA00800D5A /* NoteAddViewController.swift in Sources */,
 				EE9474962974332100DDBA6C /* NotesViewController.swift in Sources */,
 				EEA4DB72297725DA00800D5A /* TableViewCell.swift in Sources */,
+				EEF4ED6A2982B19500C15AA0 /* CategoryWaterFallViewController.swift in Sources */,
 				EE9474922974332100DDBA6C /* AppDelegate.swift in Sources */,
 				EE94749C2974332100DDBA6C /* BasicNote.xcdatamodeld in Sources */,
 				EE9474942974332100DDBA6C /* SceneDelegate.swift in Sources */,
