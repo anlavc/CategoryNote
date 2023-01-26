@@ -113,7 +113,7 @@
                                     <action selector="addCategoryButtonPressed:" destination="VSD-HR-8Uw" eventType="touchUpInside" id="k9c-ho-UxB"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4tw-dv-dZ5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4tw-dv-dZ5">
                                 <rect key="frame" x="16" y="224" width="361" height="450"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -182,7 +182,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="g2D-1R-B70">
-                                <rect key="frame" x="16" y="113" width="361" height="543.66666666666663"/>
+                                <rect key="frame" x="16" y="103" width="361" height="543.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="dy7-73-Y14">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="34.333333333333336"/>
@@ -250,19 +250,24 @@
                                     <constraint firstItem="Mp4-rO-LEE" firstAttribute="leading" secondItem="g2D-1R-B70" secondAttribute="leading" id="gDk-l2-9Av"/>
                                 </constraints>
                             </stackView>
-                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APK-j9-u00">
-                                <rect key="frame" x="0.0" y="553" width="393" height="216"/>
+                            <pickerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APK-j9-u00">
+                                <rect key="frame" x="0.0" y="631" width="393" height="138"/>
+                                <color key="tintColor" name="tabBarIconColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="138" id="hbe-FW-NrZ"/>
+                                </constraints>
                             </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rCk-6g-xdn"/>
                         <color key="backgroundColor" name="bgColor"/>
                         <constraints>
-                            <constraint firstItem="rCk-6g-xdn" firstAttribute="trailing" secondItem="g2D-1R-B70" secondAttribute="trailing" constant="16" id="GyA-Ic-8sH"/>
-                            <constraint firstItem="APK-j9-u00" firstAttribute="leading" secondItem="rCk-6g-xdn" secondAttribute="leading" id="N9W-QY-GXV"/>
-                            <constraint firstItem="g2D-1R-B70" firstAttribute="top" secondItem="rCk-6g-xdn" secondAttribute="top" constant="10" id="NLf-tx-qCS"/>
-                            <constraint firstItem="APK-j9-u00" firstAttribute="bottom" secondItem="rCk-6g-xdn" secondAttribute="bottom" id="lpc-Td-5TU"/>
-                            <constraint firstItem="APK-j9-u00" firstAttribute="trailing" secondItem="rCk-6g-xdn" secondAttribute="trailing" id="nOG-9J-WMX"/>
-                            <constraint firstItem="g2D-1R-B70" firstAttribute="leading" secondItem="rCk-6g-xdn" secondAttribute="leading" constant="16" id="oXQ-Q9-Zcc"/>
+                            <constraint firstItem="g2D-1R-B70" firstAttribute="height" secondItem="HmZ-K7-gVn" secondAttribute="height" multiplier="0.638106" id="0Ck-aI-gAW"/>
+                            <constraint firstItem="APK-j9-u00" firstAttribute="leading" secondItem="rCk-6g-xdn" secondAttribute="leading" id="Rpm-rA-UER"/>
+                            <constraint firstItem="rCk-6g-xdn" firstAttribute="trailing" secondItem="APK-j9-u00" secondAttribute="trailing" id="TKu-id-dzP"/>
+                            <constraint firstItem="g2D-1R-B70" firstAttribute="leading" secondItem="rCk-6g-xdn" secondAttribute="leading" constant="16" id="XaA-EQ-VDe"/>
+                            <constraint firstItem="rCk-6g-xdn" firstAttribute="bottom" secondItem="APK-j9-u00" secondAttribute="bottom" id="YHx-m4-nqq"/>
+                            <constraint firstItem="rCk-6g-xdn" firstAttribute="trailing" secondItem="g2D-1R-B70" secondAttribute="trailing" constant="16" id="hiI-hI-9Sq"/>
+                            <constraint firstItem="g2D-1R-B70" firstAttribute="top" secondItem="rCk-6g-xdn" secondAttribute="top" id="kpv-66-vV1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OoM-cf-szl">

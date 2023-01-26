@@ -34,7 +34,7 @@ class NoteAddViewController: UIViewController {
         loadCategory()
         pickerView.delegate = self
         pickerView.dataSource = self
-        
+       // pickerView.backgroundColor = .systemGray5
     }
     
     /// CoreData Load Category

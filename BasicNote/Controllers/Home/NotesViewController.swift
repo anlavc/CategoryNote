@@ -12,7 +12,6 @@ class NotesViewController: UIViewController {
     let cell = "categoryCell"
     var categories = [Category]()
     var notes = [Note]()
-    
     var selectedCollectionCategory : Category?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     @IBOutlet weak var categoryCollectionView: UICollectionView!
@@ -31,7 +30,29 @@ class NotesViewController: UIViewController {
         loadCategory()
         loadNote()
         setupLongGestureRecognizerOnCollection()
+        //MARK: - collectionmove
+//        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(_:)))
+//        categoryCollectionView?.addGestureRecognizer(gesture)
     }
+//    @objc func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
+//        guard let collectionView = categoryCollectionView else {
+//            return
+//        }
+//        switch gesture.state {
+//        case .began:
+//            guard let targetIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
+//                return
+//            }
+//            collectionView.beginInteractiveMovementForItem(at: targetIndexPath)
+//        case .changed:
+//            collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: collectionView))
+//        case .ended:
+//            collectionView.endInteractiveMovement()
+//
+//        default:
+//            collectionView.cancelInteractiveMovement()
+//        }
+//    }
     fileprivate func delegateFunc() {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
@@ -44,12 +65,10 @@ class NotesViewController: UIViewController {
         addCategoryButton.layer.cornerRadius = 8
         addCategoryButton.layer.masksToBounds = true
         addNoteButton.layer.cornerRadius = addNoteButton.bounds.size.height / 2
-        
         addNoteButton.layer.shadowColor = UIColor.black.cgColor
         addNoteButton.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
         addNoteButton.layer.shadowOpacity = 0.7
         addNoteButton.layer.shadowRadius = 4.0
-        
         addNoteButton.layer.masksToBounds = true
     }
     
@@ -58,8 +77,6 @@ class NotesViewController: UIViewController {
         let nibCell = UINib(nibName: "CategoryCollectionViewCell", bundle: nil)
         categoryCollectionView.register(nibCell, forCellWithReuseIdentifier: cell)
     }
-    
-    
     /// Collection Long Gesture action
     func setupLongGestureRecognizerOnCollection() {
         let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
@@ -72,13 +89,11 @@ class NotesViewController: UIViewController {
         if (gestureRecognizer.state != .began) {
             return
         }
-        
         let p = gestureRecognizer.location(in: categoryCollectionView)
         
         if let indexPath = categoryCollectionView?.indexPathForItem(at: p)  {
             
             print("Long press at item: \(indexPath.row)")
-            
         }
     }
     /// Note Add Button Segue
@@ -104,7 +119,20 @@ class NotesViewController: UIViewController {
     /// Load Category Note
     /// - Parameter request
     func loadCategoryNote(index: Int) {
-       
+        if categories[index].name! == "Genel" {
+            DispatchQueue.main.async {
+                self.loadNote()
+            }
+          
+        } else {
+            DispatchQueue.main.async {
+                let request : NSFetchRequest<Note> = Note.fetchRequest()
+                request.predicate = NSPredicate(format: "upCategory.name MATCHES %@", self.categories[index].name!)
+                request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+                self.loadNote(with: request)
+            }
+          
+        }
         let request : NSFetchRequest<Note> = Note.fetchRequest()
         request.predicate = NSPredicate(format: "upCategory.name MATCHES %@", categories[index].name!)
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
@@ -124,9 +152,11 @@ class NotesViewController: UIViewController {
     /// Category Add Button
     /// - Parameter sender: Button
     @IBAction func addCategoryButtonPressed(_ sender: UIButton) {
-        var textField = UITextField()
+
         
+        var textField = UITextField()
         let alert = UIAlertController(title: "Add New ToDo Category", message: "", preferredStyle: .alert)
+
         let action = UIAlertAction(title: "Add Category", style: .default) { (action) in
             let newCategory = Category(context: self.context)
             newCategory.name = textField.text!
@@ -141,7 +171,6 @@ class NotesViewController: UIViewController {
             textField = alertTextField
         }
         alert.addAction(action)
-      
         present(alert, animated: true, completion: nil)
     }
     /// Save Category Func
@@ -205,12 +234,19 @@ extension NotesViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return cell!
         
     }
+    //MARK: - Collection Move
+//    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+//    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//        let item = categories.remove(at: sourceIndexPath.row)
+//        categories.insert(item, at: destinationIndexPath.row)
+//    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let text = categories[indexPath.row].name
         let font = UIFont.systemFont(ofSize: 21, weight: UIFont.Weight.regular)
         let attributes = font != nil ? [NSAttributedString.Key.font: font] : [:]
         let width = text!.size(withAttributes: attributes).width
-        
         return CGSize(width: width + 8+8+8+15, height: 35)
         
     }
@@ -228,6 +264,7 @@ extension NotesViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }
         return context
     }
+    
     
 }
 //MARK: - Tableview Delegate and DataSource
