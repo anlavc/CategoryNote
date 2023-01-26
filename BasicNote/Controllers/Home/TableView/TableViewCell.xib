@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="145" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="BasicNote" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="398" height="145"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="398" height="145"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWm-pt-BfE">
+                        <rect key="frame" x="10" y="10" width="378" height="125"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsY-Sr-KtA">
+                                <rect key="frame" x="5" y="5" width="43.333333333333336" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" name="tabBarIconColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting starts at 10pm." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8f-Ah-4y8">
+                                <rect key="frame" x="5" y="35" width="368" height="15.666666666666664"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="zB7-rD-V1v">
+                                <rect key="frame" x="288.66666666666669" y="5" width="84.333333333333314" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01.01.2023" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwz-Cv-CG3">
+                                        <rect key="frame" x="9" y="4.666666666666667" width="66.333333333333329" height="15.666666666666664"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="8id-Pm-9ny"/>
+                                    <constraint firstItem="Kwz-Cv-CG3" firstAttribute="centerX" secondItem="zB7-rD-V1v" secondAttribute="centerX" id="bhZ-mg-hdD"/>
+                                    <constraint firstAttribute="width" secondItem="Kwz-Cv-CG3" secondAttribute="width" multiplier="1.04637" constant="15" id="slE-Up-xZE"/>
+                                    <constraint firstItem="Kwz-Cv-CG3" firstAttribute="centerY" secondItem="zB7-rD-V1v" secondAttribute="centerY" id="zHJ-X0-USB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hsY-Sr-KtA" firstAttribute="height" secondItem="zB7-rD-V1v" secondAttribute="height" multiplier="0.813333" id="97h-oL-FFh"/>
+                            <constraint firstItem="hsY-Sr-KtA" firstAttribute="top" secondItem="LWm-pt-BfE" secondAttribute="top" constant="5" id="9Qs-jw-Hcm"/>
+                            <constraint firstAttribute="trailing" secondItem="zB7-rD-V1v" secondAttribute="trailing" constant="5" id="Aq4-9l-XEM"/>
+                            <constraint firstItem="r8f-Ah-4y8" firstAttribute="top" secondItem="zB7-rD-V1v" secondAttribute="bottom" constant="5" id="Fsj-hP-PRx"/>
+                            <constraint firstItem="zB7-rD-V1v" firstAttribute="top" secondItem="LWm-pt-BfE" secondAttribute="top" constant="5" id="doV-hR-HHn"/>
+                            <constraint firstAttribute="trailing" secondItem="r8f-Ah-4y8" secondAttribute="trailing" constant="5" id="hEG-LT-1e6"/>
+                            <constraint firstItem="hsY-Sr-KtA" firstAttribute="leading" secondItem="LWm-pt-BfE" secondAttribute="leading" constant="5" id="i8n-Ia-q2p"/>
+                            <constraint firstItem="r8f-Ah-4y8" firstAttribute="leading" secondItem="LWm-pt-BfE" secondAttribute="leading" constant="5" id="k8e-yL-T9b"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="bgColor"/>
+                <constraints>
+                    <constraint firstItem="LWm-pt-BfE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="FMG-i8-itO"/>
+                    <constraint firstAttribute="bottom" secondItem="LWm-pt-BfE" secondAttribute="bottom" constant="10" id="aXV-El-Q2D"/>
+                    <constraint firstItem="LWm-pt-BfE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="axq-wz-U1h"/>
+                    <constraint firstAttribute="trailing" secondItem="LWm-pt-BfE" secondAttribute="trailing" constant="10" id="qCU-jc-sKy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="date" destination="Kwz-Cv-CG3" id="n0c-sm-Row"/>
+                <outlet property="dateView" destination="zB7-rD-V1v" id="nFJ-iV-xDY"/>
+                <outlet property="note" destination="r8f-Ah-4y8" id="fHO-u4-jTI"/>
+                <outlet property="title" destination="hsY-Sr-KtA" id="Kgx-aI-XCT"/>
+                <outlet property="view" destination="LWm-pt-BfE" id="jpM-Jh-s1X"/>
+            </connections>
+            <point key="canvasLocation" x="143.5114503816794" y="38.380281690140848"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="bgColor">
+            <color red="0.95300000905990601" green="0.92900002002716064" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="tabBarIconColor">
+            <color red="0.28600001335144043" green="0.27799999713897705" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
