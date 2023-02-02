@@ -19,6 +19,7 @@
 		EEA4DB6D297723CA00800D5A /* NoteAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA4DB6C297723CA00800D5A /* NoteAddViewController.swift */; };
 		EEA4DB72297725DA00800D5A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA4DB70297725DA00800D5A /* TableViewCell.swift */; };
 		EEA4DB73297725DA00800D5A /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA4DB71297725DA00800D5A /* TableViewCell.xib */; };
+		EEA6FD0B298C53F500819439 /* Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA6FD0A298C53F500819439 /* Hex.swift */; };
 		EEC448B22979C928003C79F6 /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = EEC448B12979C928003C79F6 /* iOSDropDown */; };
 		EECA4789297E754900B976BB /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EECA4788297E754900B976BB /* IQKeyboardManagerSwift */; };
 		EEF4ED6A2982B19500C15AA0 /* CategoryWaterFallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4ED692982B19500C15AA0 /* CategoryWaterFallViewController.swift */; };
@@ -41,6 +42,7 @@
 		EEA4DB6C297723CA00800D5A /* NoteAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAddViewController.swift; sourceTree = "<group>"; };
 		EEA4DB70297725DA00800D5A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		EEA4DB71297725DA00800D5A /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		EEA6FD0A298C53F500819439 /* Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hex.swift; sourceTree = "<group>"; };
 		EEF4ED692982B19500C15AA0 /* CategoryWaterFallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryWaterFallViewController.swift; sourceTree = "<group>"; };
 		EEF4ED6F2982B2E800C15AA0 /* WaterFallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallCollectionViewCell.swift; sourceTree = "<group>"; };
 		EEF4ED702982B2E800C15AA0 /* WaterFallCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaterFallCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				EE9474972974332100DDBA6C /* Main.storyboard */,
 				EE94749D2974332300DDBA6C /* Assets.xcassets */,
 				EE9474A22974332300DDBA6C /* Info.plist */,
+				EEA6FD0A298C53F500819439 /* Hex.swift */,
 			);
 			path = BasicNote;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEF4ED712982B2E800C15AA0 /* WaterFallCollectionViewCell.swift in Sources */,
+				EEA6FD0B298C53F500819439 /* Hex.swift in Sources */,
 				EE7958092974390900AF9162 /* CategoryCollectionViewCell.swift in Sources */,
 				EEA4DB6D297723CA00800D5A /* NoteAddViewController.swift in Sources */,
 				EE9474962974332100DDBA6C /* NotesViewController.swift in Sources */,
