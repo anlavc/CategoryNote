@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37BEE1AED357B2A879FC2432 /* Pods_BasicNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A65D12238545936AD6B1155 /* Pods_BasicNote.framework */; };
+		EE792AFE298D99B200FC8E90 /* BottomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE792AFD298D99B200FC8E90 /* BottomViewController.xib */; };
+		EE792B02298DAD7D00FC8E90 /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE792B01298DAD7D00FC8E90 /* UIView + Ext.swift */; };
 		EE7958092974390900AF9162 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7958072974390900AF9162 /* CategoryCollectionViewCell.swift */; };
 		EE79580A2974390900AF9162 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE7958082974390900AF9162 /* CategoryCollectionViewCell.xib */; };
 		EE9474922974332100DDBA6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9474912974332100DDBA6C /* AppDelegate.swift */; };
@@ -16,6 +19,11 @@
 		EE94749C2974332100DDBA6C /* BasicNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE94749A2974332100DDBA6C /* BasicNote.xcdatamodeld */; };
 		EE94749E2974332300DDBA6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE94749D2974332300DDBA6C /* Assets.xcassets */; };
 		EE9474A12974332300DDBA6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE94749F2974332300DDBA6C /* LaunchScreen.storyboard */; };
+		EE9B0069298D915400C0C73D /* BottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9B0067298D915400C0C73D /* BottomViewController.swift */; };
+		EE9B0078298D935D00C0C73D /* BRQBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE9B0074298D935D00C0C73D /* BRQBottomSheetViewController.xib */; };
+		EE9B0079298D935D00C0C73D /* BRQBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9B0075298D935D00C0C73D /* BRQBottomSheetViewController.swift */; };
+		EE9B007A298D935D00C0C73D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9B0076298D935D00C0C73D /* Extensions.swift */; };
+		EE9B007B298D935D00C0C73D /* BRQBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9B0077298D935D00C0C73D /* BRQBottomSheetViewModel.swift */; };
 		EEA4DB6D297723CA00800D5A /* NoteAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA4DB6C297723CA00800D5A /* NoteAddViewController.swift */; };
 		EEA4DB72297725DA00800D5A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA4DB70297725DA00800D5A /* TableViewCell.swift */; };
 		EEA4DB73297725DA00800D5A /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEA4DB71297725DA00800D5A /* TableViewCell.xib */; };
@@ -28,6 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A65D12238545936AD6B1155 /* Pods_BasicNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2F0FA0226823DE802DF8DA8 /* Pods-BasicNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicNote.release.xcconfig"; path = "Target Support Files/Pods-BasicNote/Pods-BasicNote.release.xcconfig"; sourceTree = "<group>"; };
+		EE792AFD298D99B200FC8E90 /* BottomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomViewController.xib; sourceTree = "<group>"; };
+		EE792B01298DAD7D00FC8E90 /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
 		EE7958072974390900AF9162 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		EE7958082974390900AF9162 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		EE94748E2974332100DDBA6C /* BasicNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +51,11 @@
 		EE94749D2974332300DDBA6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE9474A02974332300DDBA6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE9474A22974332300DDBA6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE9B0067298D915400C0C73D /* BottomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
+		EE9B0074298D935D00C0C73D /* BRQBottomSheetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BRQBottomSheetViewController.xib; sourceTree = "<group>"; };
+		EE9B0075298D935D00C0C73D /* BRQBottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRQBottomSheetViewController.swift; sourceTree = "<group>"; };
+		EE9B0076298D935D00C0C73D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		EE9B0077298D935D00C0C73D /* BRQBottomSheetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRQBottomSheetViewModel.swift; sourceTree = "<group>"; };
 		EEA4DB6C297723CA00800D5A /* NoteAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAddViewController.swift; sourceTree = "<group>"; };
 		EEA4DB70297725DA00800D5A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		EEA4DB71297725DA00800D5A /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -46,6 +63,7 @@
 		EEF4ED692982B19500C15AA0 /* CategoryWaterFallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryWaterFallViewController.swift; sourceTree = "<group>"; };
 		EEF4ED6F2982B2E800C15AA0 /* WaterFallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallCollectionViewCell.swift; sourceTree = "<group>"; };
 		EEF4ED702982B2E800C15AA0 /* WaterFallCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaterFallCollectionViewCell.xib; sourceTree = "<group>"; };
+		F0E9FB2A88327FBC1AAD37C1 /* Pods-BasicNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicNote.debug.xcconfig"; path = "Target Support Files/Pods-BasicNote/Pods-BasicNote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,15 +73,34 @@
 			files = (
 				EEC448B22979C928003C79F6 /* iOSDropDown in Frameworks */,
 				EECA4789297E754900B976BB /* IQKeyboardManagerSwift in Frameworks */,
+				37BEE1AED357B2A879FC2432 /* Pods_BasicNote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		354988440C01EE162C41F4FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A65D12238545936AD6B1155 /* Pods_BasicNote.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		604650F043F1B4E9E0C4480F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F0E9FB2A88327FBC1AAD37C1 /* Pods-BasicNote.debug.xcconfig */,
+				B2F0FA0226823DE802DF8DA8 /* Pods-BasicNote.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EE7957FD2974379000AF9162 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EE9B0066298D914600C0C73D /* BottomSheet */,
 				EEF4ED682982B17500C15AA0 /* Category */,
 				EE795804297438E700AF9162 /* Home */,
 				EEA4DB6F297725B900800D5A /* Note */,
@@ -121,6 +158,8 @@
 			children = (
 				EE9474902974332100DDBA6C /* BasicNote */,
 				EE94748F2974332100DDBA6C /* Products */,
+				604650F043F1B4E9E0C4480F /* Pods */,
+				354988440C01EE162C41F4FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +185,27 @@
 			path = BasicNote;
 			sourceTree = "<group>";
 		};
+		EE9B0066298D914600C0C73D /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				EE9B006B298D916800C0C73D /* ExtensionsBottom */,
+				EE9B0067298D915400C0C73D /* BottomViewController.swift */,
+				EE792AFD298D99B200FC8E90 /* BottomViewController.xib */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		EE9B006B298D916800C0C73D /* ExtensionsBottom */ = {
+			isa = PBXGroup;
+			children = (
+				EE9B0075298D935D00C0C73D /* BRQBottomSheetViewController.swift */,
+				EE9B0074298D935D00C0C73D /* BRQBottomSheetViewController.xib */,
+				EE9B0077298D935D00C0C73D /* BRQBottomSheetViewModel.swift */,
+				EE9B0076298D935D00C0C73D /* Extensions.swift */,
+			);
+			path = ExtensionsBottom;
+			sourceTree = "<group>";
+		};
 		EEA4DB6E297725A400800D5A /* TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				EEA6FD0A298C53F500819439 /* Hex.swift */,
+				EE792B01298DAD7D00FC8E90 /* UIView + Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -188,9 +249,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE9474A52974332300DDBA6C /* Build configuration list for PBXNativeTarget "BasicNote" */;
 			buildPhases = (
+				152DD499FAD4EF98FC0221DF /* [CP] Check Pods Manifest.lock */,
 				EE94748A2974332100DDBA6C /* Sources */,
 				EE94748B2974332100DDBA6C /* Frameworks */,
 				EE94748C2974332100DDBA6C /* Resources */,
+				23B7590E580B9AC5F79FDD66 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,11 +315,55 @@
 				EEA4DB73297725DA00800D5A /* TableViewCell.xib in Resources */,
 				EE94749E2974332300DDBA6C /* Assets.xcassets in Resources */,
 				EE79580A2974390900AF9162 /* CategoryCollectionViewCell.xib in Resources */,
+				EE792AFE298D99B200FC8E90 /* BottomViewController.xib in Resources */,
 				EE9474992974332100DDBA6C /* Main.storyboard in Resources */,
+				EE9B0078298D935D00C0C73D /* BRQBottomSheetViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		152DD499FAD4EF98FC0221DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BasicNote-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		23B7590E580B9AC5F79FDD66 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicNote/Pods-BasicNote-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasicNote/Pods-BasicNote-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicNote/Pods-BasicNote-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EE94748A2974332100DDBA6C /* Sources */ = {
@@ -266,13 +373,18 @@
 				EEF4ED712982B2E800C15AA0 /* WaterFallCollectionViewCell.swift in Sources */,
 				EEA6FD0B298C53F500819439 /* Hex.swift in Sources */,
 				EE7958092974390900AF9162 /* CategoryCollectionViewCell.swift in Sources */,
+				EE9B0079298D935D00C0C73D /* BRQBottomSheetViewController.swift in Sources */,
 				EEA4DB6D297723CA00800D5A /* NoteAddViewController.swift in Sources */,
 				EE9474962974332100DDBA6C /* NotesViewController.swift in Sources */,
+				EE9B0069298D915400C0C73D /* BottomViewController.swift in Sources */,
 				EEA4DB72297725DA00800D5A /* TableViewCell.swift in Sources */,
+				EE9B007A298D935D00C0C73D /* Extensions.swift in Sources */,
 				EEF4ED6A2982B19500C15AA0 /* CategoryWaterFallViewController.swift in Sources */,
 				EE9474922974332100DDBA6C /* AppDelegate.swift in Sources */,
 				EE94749C2974332100DDBA6C /* BasicNote.xcdatamodeld in Sources */,
 				EE9474942974332100DDBA6C /* SceneDelegate.swift in Sources */,
+				EE9B007B298D935D00C0C73D /* BRQBottomSheetViewModel.swift in Sources */,
+				EE792B02298DAD7D00FC8E90 /* UIView + Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +526,7 @@
 		};
 		EE9474A62974332300DDBA6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0E9FB2A88327FBC1AAD37C1 /* Pods-BasicNote.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -445,6 +558,7 @@
 		};
 		EE9474A72974332300DDBA6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2F0FA0226823DE802DF8DA8 /* Pods-BasicNote.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

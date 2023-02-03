@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+        <attribute name="colorAsHex" optional="YES" attributeType="Transformable"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="altNote" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note"/>
     </entity>

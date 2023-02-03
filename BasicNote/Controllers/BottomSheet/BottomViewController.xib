@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BottomViewController" customModule="BasicNote" customModuleProvider="target">
+            <connections>
+                <outlet property="categoryText" destination="Jgy-mG-SQw" id="bWm-wZ-hVH"/>
+                <outlet property="colorPickerView" destination="TBd-U1-btc" id="aES-3B-ZEX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="254"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBd-U1-btc" customClass="ColorPickerView" customModule="IGColorPicker">
+                    <rect key="frame" x="10" y="122" width="394" height="122"/>
+                    <color key="backgroundColor" red="0.98431372549999996" green="0.35294117650000001" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="YZt-Sp-EHB"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1o4-x3-S09">
+                    <rect key="frame" x="30" y="170" width="184" height="0.0"/>
+                    <color key="backgroundColor" red="0.98431372549999996" green="0.35294117650000001" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category Name" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Jgy-mG-SQw">
+                    <rect key="frame" x="10" y="47" width="331" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="HJw-3t-4km"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIY-4T-n4Q">
+                    <rect key="frame" x="352.5" y="46.5" width="41.5" height="26"/>
+                    <color key="backgroundColor" name="bgColor"/>
+                    <color key="tintColor" name="tabBarIconColor"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <connections>
+                        <action selector="addCategoryButton:" destination="-1" eventType="touchUpInside" id="04j-1H-69T"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="bgColor"/>
+            <constraints>
+                <constraint firstItem="Jgy-mG-SQw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="26n-RV-eEQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="TBd-U1-btc" secondAttribute="bottom" constant="10" id="7Wf-2C-Mqo"/>
+                <constraint firstItem="GIY-4T-n4Q" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.1" id="HUF-rd-3lf"/>
+                <constraint firstItem="1o4-x3-S09" firstAttribute="top" secondItem="TBd-U1-btc" secondAttribute="bottom" priority="250" constant="100" id="SGn-s8-PFF"/>
+                <constraint firstItem="Jgy-mG-SQw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="47" id="V6H-NM-Usg"/>
+                <constraint firstItem="TBd-U1-btc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="bQS-yk-3Zr"/>
+                <constraint firstItem="GIY-4T-n4Q" firstAttribute="centerY" secondItem="Jgy-mG-SQw" secondAttribute="centerY" id="fbh-dv-xEn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1o4-x3-S09" secondAttribute="trailing" constant="200" id="hJd-Wh-w9a"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TBd-U1-btc" secondAttribute="trailing" constant="10" id="j3a-pM-4HW"/>
+                <constraint firstItem="TBd-U1-btc" firstAttribute="top" secondItem="Jgy-mG-SQw" secondAttribute="bottom" constant="50" id="sfg-Du-ZzT"/>
+                <constraint firstItem="Jgy-mG-SQw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="tM0-Ru-G2L"/>
+                <constraint firstAttribute="bottom" secondItem="1o4-x3-S09" secondAttribute="bottom" constant="84" id="tSb-31-roT"/>
+                <constraint firstItem="1o4-x3-S09" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="wuk-Ux-fdi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GIY-4T-n4Q" secondAttribute="trailing" constant="20" id="xNz-WB-zM5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="47.826086956521742" y="207.58928571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="bgColor">
+            <color red="0.95300000905990601" green="0.92900002002716064" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="tabBarIconColor">
+            <color red="0.28600001335144043" green="0.27799999713897705" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

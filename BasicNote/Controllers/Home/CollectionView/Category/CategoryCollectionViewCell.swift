@@ -15,12 +15,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var view: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = .random()
-        let blurEfect = UIBlurEffect(style: .light)
-        let blurEffectView = UIVisualEffectView(effect: blurEfect)
-        blurEffectView.frame = contentView.bounds
-        contentView.addSubview(blurEffectView)
-        contentView.addSubview(categoryLabel)
+       // contentView.backgroundColor = .random()
+//        let blurEfect = UIBlurEffect(style: .light)
+//        let blurEffectView = UIVisualEffectView(effect: blurEfect)
+//        blurEffectView.frame = contentView.bounds
+//        contentView.addSubview(blurEffectView)
+//        contentView.addSubview(categoryLabel)
         
         contentView.layer.cornerRadius = frame.height / 5
         contentView.layer.masksToBounds = true

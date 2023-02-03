@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import IGColorPicker
 
 class NotesViewController: UIViewController {
     let cell = "categoryCell"
@@ -152,26 +153,39 @@ class NotesViewController: UIViewController {
     /// Category Add Button
     /// - Parameter sender: Button
     @IBAction func addCategoryButtonPressed(_ sender: UIButton) {
-
+        let myViewController = BottomViewController()
         
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Add New ToDo Category", message: "", preferredStyle: .alert)
-
-        let action = UIAlertAction(title: "Add Category", style: .default) { (action) in
-            let newCategory = Category(context: self.context)
-            newCategory.name = textField.text!
-            self.categories.append(newCategory)
-            self.saveCategory()
-        }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-              print("Cancel button press")
-        }))
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create New Item"
-            textField = alertTextField
-        }
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+        let bottomSheetViewModel = BRQBottomSheetViewModel(
+            cornerRadius: 20,
+            animationTransitionDuration: 0.3,
+            backgroundColor: UIColor.red.withAlphaComponent(0.5)
+        )
+        
+        let bottomSheetVC = BRQBottomSheetViewController(
+            viewModel: bottomSheetViewModel,
+            childViewController: myViewController
+        )
+        
+        presentBottomSheet(bottomSheetVC, completion: nil)
+        
+//        var textField = UITextField()
+//        let alert = UIAlertController(title: "Add New ToDo Category", message: "", preferredStyle: .alert)
+//
+//        let action = UIAlertAction(title: "Add Category", style: .default) { (action) in
+//            let newCategory = Category(context: self.context)
+//            newCategory.name = textField.text!
+//            self.categories.append(newCategory)
+//            self.saveCategory()
+//        }
+//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+//              print("Cancel button press")
+//        }))
+//        alert.addTextField { (alertTextField) in
+//            alertTextField.placeholder = "Create New Item"
+//            textField = alertTextField
+//        }
+//        alert.addAction(action)
+//        present(alert, animated: true, completion: nil)
     }
     /// Save Category Func
     func saveCategory() {
@@ -229,6 +243,7 @@ extension NotesViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let cell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: cell, for: indexPath) as?  CategoryCollectionViewCell
         let categories = categories[indexPath.row]
         cell?.categoryLabel.text = categories.name
+        cell?.contentView.backgroundColor = categories.colorAsHex as? UIColor ?? UIColor.random()
         categoryCollectionView.layer.cornerRadius = 20
         categoryCollectionView.layer.masksToBounds = true
         return cell!
@@ -278,9 +293,11 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = noteTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCell
         let notes = notes[indexPath.row]
+        
         cell?.title.text = notes.title
         cell?.date.text = notes.upCategory?.name
         cell?.note.text = notes.noteText
+        cell?.dateView.backgroundColor = notes.upCategory?.colorAsHex as? UIColor ?? UIColor.random()
         return cell!
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
