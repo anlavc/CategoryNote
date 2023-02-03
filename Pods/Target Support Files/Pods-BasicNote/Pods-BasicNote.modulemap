@@ -1,0 +1,6 @@
+framework module Pods_BasicNote {
+  umbrella header "Pods-BasicNote-umbrella.h"
+
+  export *
+  module * { export * }
+}
