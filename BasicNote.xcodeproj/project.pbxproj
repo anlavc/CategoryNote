@@ -135,13 +135,13 @@
 		EE9474902974332100DDBA6C /* BasicNote */ = {
 			isa = PBXGroup;
 			children = (
+				EEA6FD2C298C5E9F00819439 /* Extensions */,
 				EE7957FE2974379800AF9162 /* Resources */,
 				EE79580B29745D7A00AF9162 /* Model */,
 				EE7957FD2974379000AF9162 /* Controllers */,
 				EE9474972974332100DDBA6C /* Main.storyboard */,
 				EE94749D2974332300DDBA6C /* Assets.xcassets */,
 				EE9474A22974332300DDBA6C /* Info.plist */,
-				EEA6FD0A298C53F500819439 /* Hex.swift */,
 			);
 			path = BasicNote;
 			sourceTree = "<group>";
@@ -161,6 +161,14 @@
 				EEA4DB6C297723CA00800D5A /* NoteAddViewController.swift */,
 			);
 			path = Note;
+			sourceTree = "<group>";
+		};
+		EEA6FD2C298C5E9F00819439 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EEA6FD0A298C53F500819439 /* Hex.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EEF4ED682982B17500C15AA0 /* Category */ = {
