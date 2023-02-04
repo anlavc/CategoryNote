@@ -43,12 +43,7 @@ class NotesViewController: UIViewController,BottomViewControllerDelegate {
         let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(_:)))
         categoryCollectionView?.addGestureRecognizer(gesture)
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
-                let bottomViewController = segue.destination as! BottomViewController
-                bottomViewController.delegate = self
-            
-        }
+
    @objc func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
        guard let collectionView = categoryCollectionView else {
             return
@@ -165,6 +160,7 @@ class NotesViewController: UIViewController,BottomViewControllerDelegate {
     /// - Parameter sender: Button
     @IBAction func addCategoryButtonPressed(_ sender: UIButton) {
         let myViewController = BottomViewController()
+        myViewController.delegate = self
         let bottomSheetViewModel = BRQBottomSheetViewModel(
             cornerRadius: 20,
             animationTransitionDuration: 0.3,
