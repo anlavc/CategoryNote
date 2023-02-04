@@ -10,8 +10,11 @@
 		37BEE1AED357B2A879FC2432 /* Pods_BasicNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A65D12238545936AD6B1155 /* Pods_BasicNote.framework */; };
 		EE792AFE298D99B200FC8E90 /* BottomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE792AFD298D99B200FC8E90 /* BottomViewController.xib */; };
 		EE792B02298DAD7D00FC8E90 /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE792B01298DAD7D00FC8E90 /* UIView + Ext.swift */; };
+		EE792B05298DB69D00FC8E90 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE792B03298DB69D00FC8E90 /* CategoryTableViewCell.swift */; };
+		EE792B06298DB69D00FC8E90 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE792B04298DB69D00FC8E90 /* CategoryTableViewCell.xib */; };
 		EE7958092974390900AF9162 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7958072974390900AF9162 /* CategoryCollectionViewCell.swift */; };
 		EE79580A2974390900AF9162 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE7958082974390900AF9162 /* CategoryCollectionViewCell.xib */; };
+		EE7F9ECE298EB7D900AE7BBA /* TableViewEmpty + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F9ECD298EB7D900AE7BBA /* TableViewEmpty + Ext.swift */; };
 		EE9474922974332100DDBA6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9474912974332100DDBA6C /* AppDelegate.swift */; };
 		EE9474942974332100DDBA6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9474932974332100DDBA6C /* SceneDelegate.swift */; };
 		EE9474962974332100DDBA6C /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9474952974332100DDBA6C /* NotesViewController.swift */; };
@@ -31,8 +34,6 @@
 		EEC448B22979C928003C79F6 /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = EEC448B12979C928003C79F6 /* iOSDropDown */; };
 		EECA4789297E754900B976BB /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EECA4788297E754900B976BB /* IQKeyboardManagerSwift */; };
 		EEF4ED6A2982B19500C15AA0 /* CategoryWaterFallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4ED692982B19500C15AA0 /* CategoryWaterFallViewController.swift */; };
-		EEF4ED712982B2E800C15AA0 /* WaterFallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4ED6F2982B2E800C15AA0 /* WaterFallCollectionViewCell.swift */; };
-		EEF4ED722982B2E800C15AA0 /* WaterFallCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF4ED702982B2E800C15AA0 /* WaterFallCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +41,11 @@
 		B2F0FA0226823DE802DF8DA8 /* Pods-BasicNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicNote.release.xcconfig"; path = "Target Support Files/Pods-BasicNote/Pods-BasicNote.release.xcconfig"; sourceTree = "<group>"; };
 		EE792AFD298D99B200FC8E90 /* BottomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomViewController.xib; sourceTree = "<group>"; };
 		EE792B01298DAD7D00FC8E90 /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
+		EE792B03298DB69D00FC8E90 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		EE792B04298DB69D00FC8E90 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		EE7958072974390900AF9162 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		EE7958082974390900AF9162 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		EE7F9ECD298EB7D900AE7BBA /* TableViewEmpty + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewEmpty + Ext.swift"; sourceTree = "<group>"; };
 		EE94748E2974332100DDBA6C /* BasicNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE9474912974332100DDBA6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE9474932974332100DDBA6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,8 +65,6 @@
 		EEA4DB71297725DA00800D5A /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		EEA6FD0A298C53F500819439 /* Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hex.swift; sourceTree = "<group>"; };
 		EEF4ED692982B19500C15AA0 /* CategoryWaterFallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryWaterFallViewController.swift; sourceTree = "<group>"; };
-		EEF4ED6F2982B2E800C15AA0 /* WaterFallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFallCollectionViewCell.swift; sourceTree = "<group>"; };
-		EEF4ED702982B2E800C15AA0 /* WaterFallCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaterFallCollectionViewCell.xib; sourceTree = "<group>"; };
 		F0E9FB2A88327FBC1AAD37C1 /* Pods-BasicNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicNote.debug.xcconfig"; path = "Target Support Files/Pods-BasicNote/Pods-BasicNote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,6 +230,7 @@
 			children = (
 				EEA6FD0A298C53F500819439 /* Hex.swift */,
 				EE792B01298DAD7D00FC8E90 /* UIView + Ext.swift */,
+				EE7F9ECD298EB7D900AE7BBA /* TableViewEmpty + Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -236,8 +239,8 @@
 			isa = PBXGroup;
 			children = (
 				EEF4ED692982B19500C15AA0 /* CategoryWaterFallViewController.swift */,
-				EEF4ED6F2982B2E800C15AA0 /* WaterFallCollectionViewCell.swift */,
-				EEF4ED702982B2E800C15AA0 /* WaterFallCollectionViewCell.xib */,
+				EE792B03298DB69D00FC8E90 /* CategoryTableViewCell.swift */,
+				EE792B04298DB69D00FC8E90 /* CategoryTableViewCell.xib */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -311,8 +314,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE9474A12974332300DDBA6C /* LaunchScreen.storyboard in Resources */,
-				EEF4ED722982B2E800C15AA0 /* WaterFallCollectionViewCell.xib in Resources */,
 				EEA4DB73297725DA00800D5A /* TableViewCell.xib in Resources */,
+				EE792B06298DB69D00FC8E90 /* CategoryTableViewCell.xib in Resources */,
 				EE94749E2974332300DDBA6C /* Assets.xcassets in Resources */,
 				EE79580A2974390900AF9162 /* CategoryCollectionViewCell.xib in Resources */,
 				EE792AFE298D99B200FC8E90 /* BottomViewController.xib in Resources */,
@@ -370,13 +373,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEF4ED712982B2E800C15AA0 /* WaterFallCollectionViewCell.swift in Sources */,
 				EEA6FD0B298C53F500819439 /* Hex.swift in Sources */,
 				EE7958092974390900AF9162 /* CategoryCollectionViewCell.swift in Sources */,
 				EE9B0079298D935D00C0C73D /* BRQBottomSheetViewController.swift in Sources */,
+				EE7F9ECE298EB7D900AE7BBA /* TableViewEmpty + Ext.swift in Sources */,
 				EEA4DB6D297723CA00800D5A /* NoteAddViewController.swift in Sources */,
 				EE9474962974332100DDBA6C /* NotesViewController.swift in Sources */,
 				EE9B0069298D915400C0C73D /* BottomViewController.swift in Sources */,
+				EE792B05298DB69D00FC8E90 /* CategoryTableViewCell.swift in Sources */,
 				EEA4DB72297725DA00800D5A /* TableViewCell.swift in Sources */,
 				EE9B007A298D935D00C0C73D /* Extensions.swift in Sources */,
 				EEF4ED6A2982B19500C15AA0 /* CategoryWaterFallViewController.swift in Sources */,

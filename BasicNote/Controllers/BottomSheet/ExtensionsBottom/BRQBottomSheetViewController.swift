@@ -73,7 +73,7 @@ public class BRQBottomSheetViewController: UIViewController {
     
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+    
         if let tableView = containsTableView() {
             contentViewHeight.constant = tableView.contentSize.height
             view.layoutIfNeeded()
@@ -101,6 +101,7 @@ public class BRQBottomSheetViewController: UIViewController {
 
 extension BRQBottomSheetViewController {
     public func dismissViewController() {
+   
         contentViewBottomConstraint.constant = -childViewController.view.frame.height
         UIView.animate(withDuration: viewModel.animationTransitionDuration, animations: {
             self.view.layoutIfNeeded()

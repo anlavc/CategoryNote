@@ -8,8 +8,17 @@
 import UIKit
 import CoreData
 import IGColorPicker
-
-class NotesViewController: UIViewController {
+protocol BottomViewControllerDelegate: class {
+    func reloadCollectionView()
+}
+class NotesViewController: UIViewController,BottomViewControllerDelegate {
+    func reloadCollectionView() {
+        loadCategory()
+        categoryCollectionView.reloadData()
+    
+    }
+    
+    
     let cell = "categoryCell"
     var categories = [Category]()
     var notes = [Note]()
@@ -21,8 +30,6 @@ class NotesViewController: UIViewController {
     @IBOutlet weak var noteTableView: UITableView!
     @IBOutlet weak var addCategoryButton: UIButton!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTable()
@@ -31,29 +38,36 @@ class NotesViewController: UIViewController {
         loadCategory()
         loadNote()
         setupLongGestureRecognizerOnCollection()
+        
         //MARK: - collectionmove
-//        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(_:)))
-//        categoryCollectionView?.addGestureRecognizer(gesture)
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(_:)))
+        categoryCollectionView?.addGestureRecognizer(gesture)
     }
-//    @objc func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
-//        guard let collectionView = categoryCollectionView else {
-//            return
-//        }
-//        switch gesture.state {
-//        case .began:
-//            guard let targetIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
-//                return
-//            }
-//            collectionView.beginInteractiveMovementForItem(at: targetIndexPath)
-//        case .changed:
-//            collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: collectionView))
-//        case .ended:
-//            collectionView.endInteractiveMovement()
-//
-//        default:
-//            collectionView.cancelInteractiveMovement()
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+                let bottomViewController = segue.destination as! BottomViewController
+                bottomViewController.delegate = self
+            
+        }
+   @objc func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
+       guard let collectionView = categoryCollectionView else {
+            return
+       }
+       switch gesture.state {
+        case .began:
+           guard let targetIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
+              return
+          }
+          collectionView.beginInteractiveMovementForItem(at: targetIndexPath)
+      case .changed:
+          collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: collectionView))
+      case .ended:
+          collectionView.endInteractiveMovement()
+
+      default:
+          collectionView.cancelInteractiveMovement()
+      }
+  }
     fileprivate func delegateFunc() {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
@@ -61,7 +75,6 @@ class NotesViewController: UIViewController {
         noteTableView.dataSource = self
         searchBar.delegate = self
     }
-    
     fileprivate func viewEdit() {
         addCategoryButton.layer.cornerRadius = 8
         addCategoryButton.layer.masksToBounds = true
@@ -72,7 +85,6 @@ class NotesViewController: UIViewController {
         addNoteButton.layer.shadowRadius = 4.0
         addNoteButton.layer.masksToBounds = true
     }
-    
     fileprivate func registerTable() {
         self.noteTableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         let nibCell = UINib(nibName: "CategoryCollectionViewCell", bundle: nil)
@@ -91,9 +103,7 @@ class NotesViewController: UIViewController {
             return
         }
         let p = gestureRecognizer.location(in: categoryCollectionView)
-        
         if let indexPath = categoryCollectionView?.indexPathForItem(at: p)  {
-            
             print("Long press at item: \(indexPath.row)")
         }
     }
@@ -105,6 +115,8 @@ class NotesViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         noteTableView.reloadData()
+        categoryCollectionView.reloadData()
+        loadCategory()
         loadNote()
     }
     /// CoreData load func
@@ -124,7 +136,6 @@ class NotesViewController: UIViewController {
             DispatchQueue.main.async {
                 self.loadNote()
             }
-          
         } else {
             DispatchQueue.main.async {
                 let request : NSFetchRequest<Note> = Note.fetchRequest()
@@ -154,38 +165,17 @@ class NotesViewController: UIViewController {
     /// - Parameter sender: Button
     @IBAction func addCategoryButtonPressed(_ sender: UIButton) {
         let myViewController = BottomViewController()
-        
         let bottomSheetViewModel = BRQBottomSheetViewModel(
             cornerRadius: 20,
             animationTransitionDuration: 0.3,
             backgroundColor: UIColor.red.withAlphaComponent(0.5)
         )
-        
         let bottomSheetVC = BRQBottomSheetViewController(
             viewModel: bottomSheetViewModel,
             childViewController: myViewController
         )
-        
         presentBottomSheet(bottomSheetVC, completion: nil)
-        
-//        var textField = UITextField()
-//        let alert = UIAlertController(title: "Add New ToDo Category", message: "", preferredStyle: .alert)
-//
-//        let action = UIAlertAction(title: "Add Category", style: .default) { (action) in
-//            let newCategory = Category(context: self.context)
-//            newCategory.name = textField.text!
-//            self.categories.append(newCategory)
-//            self.saveCategory()
-//        }
-//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-//              print("Cancel button press")
-//        }))
-//        alert.addTextField { (alertTextField) in
-//            alertTextField.placeholder = "Create New Item"
-//            textField = alertTextField
-//        }
-//        alert.addAction(action)
-//        present(alert, animated: true, completion: nil)
+
     }
     /// Save Category Func
     func saveCategory() {
@@ -195,7 +185,11 @@ class NotesViewController: UIViewController {
         } catch {
             print("Kayıt aşamasında bir hata ile karışılaşıldı.collection")
         }
-        self.categoryCollectionView.reloadData()
+        DispatchQueue.main.async {
+            self.categoryCollectionView.reloadData()
+            self.noteTableView.reloadData()
+        }
+       
         
     }
     
@@ -207,7 +201,9 @@ class NotesViewController: UIViewController {
         } catch {
             print("Veriler yüklenirken bir sorun oldu \(error.localizedDescription)")
         }
-        categoryCollectionView.reloadData()
+        DispatchQueue.main.async {
+            self.categoryCollectionView.reloadData()
+        }
     }
     /// Tableview Remove Note
     func removeItem(listItem: String) {
@@ -250,13 +246,14 @@ extension NotesViewController: UICollectionViewDelegate, UICollectionViewDataSou
         
     }
     //MARK: - Collection Move
-//    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-//    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        let item = categories.remove(at: sourceIndexPath.row)
-//        categories.insert(item, at: destinationIndexPath.row)
-//    }
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item = categories.remove(at: sourceIndexPath.row)
+        categories.insert(item, at: destinationIndexPath.row)
+        
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let text = categories[indexPath.row].name
         let font = UIFont.systemFont(ofSize: 21, weight: UIFont.Weight.regular)
@@ -279,7 +276,7 @@ extension NotesViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }
         return context
     }
-    
+
     
 }
 //MARK: - Tableview Delegate and DataSource
@@ -288,6 +285,12 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource {
         print("Moved to trash")
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if notes.count == 0 {
+        tableView.setEmptyView(title: "Notcunuz", message: "Notcunuz ayağınıza geldi.Not alınız.Yazınız. Bakınız...")
+        }
+        else {
+        tableView.restore()
+        }
         return notes.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -295,7 +298,7 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource {
         let notes = notes[indexPath.row]
         
         cell?.title.text = notes.title
-        cell?.date.text = notes.upCategory?.name
+        cell?.date.text = notes.upCategory?.name ?? "Genel"
         cell?.note.text = notes.noteText
         cell?.dateView.backgroundColor = notes.upCategory?.colorAsHex as? UIColor ?? UIColor.random()
         return cell!

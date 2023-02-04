@@ -6,31 +6,45 @@
 //
 
 import UIKit
+import CoreData
 
 class CategoryWaterFallViewController: UIViewController {
-    @IBOutlet weak var collectionWall: UICollectionView!
-    let cell = "wallCell"
+    var categories = [Category]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+   let cell = "cellcategory"
+    @IBOutlet weak var tableView: UITableView!
+    let cellCategory = "wallCell"
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionWall.delegate = self
-        collectionWall.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        loadCategory()
+      
         
-        let nibCell = UINib(nibName: "WaterFallCollectionViewCell", bundle: nil)
-        collectionWall.register(nibCell, forCellWithReuseIdentifier: cell)
+        self.tableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: cell)
     }
-    
+    func loadCategory(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
+        do {
+            categories = try context.fetch(request)
+        } catch {
+            print("Veriler yüklenirken bir sorun oldu \(error.localizedDescription)")
+        }
+        tableView.reloadData()
+    }
 
 
 }
-extension CategoryWaterFallViewController: UICollectionViewDelegate,UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+extension CategoryWaterFallViewController: UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categories.count
     }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell, for: indexPath) as? WaterFallCollectionViewCell
-        cell?.textLabel.text = "Naber"
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let categories = categories[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cell, for: indexPath) as? CategoryTableViewCell
+        cell?.textLabel?.text = categories.name
         return cell!
     }
+  
+    
 }
 

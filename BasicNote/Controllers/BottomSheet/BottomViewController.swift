@@ -9,17 +9,23 @@
 import UIKit
 import IGColorPicker
 
+
+
 class BottomViewController: UIViewController {
+    weak var delegate: BottomViewControllerDelegate?
+    @IBOutlet weak var checkImage: UIImageView!
+    @IBOutlet weak var message: UILabel!
     @IBOutlet weak var categoryText: UITextField!
     @IBOutlet weak var colorPickerView: ColorPickerView!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var categories = [Category]()
     var selectedIndex = Int()
-    
-    init() {
+   
+     init() {
         super.init(
             nibName: String(describing: BottomViewController.self),
             bundle: Bundle(for: BottomViewController.self)
+          
         )
     }
     
@@ -38,8 +44,12 @@ class BottomViewController: UIViewController {
         colorPickerView.backgroundColor = .clear
         categoryText.layer.cornerRadius = 50
         categoryText.addBottomBorderLineWithColor(color: .gray, width: 1.0)
+        
+
+        
+
     }
-    
+
     @IBAction func addCategoryButton(_ sender: UIButton) {
         let newCategory = Category(context: self.context)
         newCategory.name = categoryText.text!
@@ -47,10 +57,21 @@ class BottomViewController: UIViewController {
        
         self.categories.append(newCategory)
         self.saveCategory()
+        message.isHidden = false
+        checkImage.isHidden = false
+        message.text = "Kategori Kayıt Edildi."
+        delegate?.reloadCollectionView()
+
+    
+      
+        
     }
     func saveCategory() {
         do {
             try context.save()
+         
+            print("save")
+           
             
         } catch {
             print("Kayıt aşamasında bir hata ile karışılaşıldı.collection")
@@ -62,6 +83,7 @@ extension BottomViewController: ColorPickerViewDelegate, ColorPickerViewDelegate
     func colorPickerView(_ colorPickerView: ColorPickerView, didSelectItemAt indexPath: IndexPath) {
         
         self.view.backgroundColor = colorPickerView.colors[indexPath.item]
+        selectedIndex = indexPath.row
     
     }
     
