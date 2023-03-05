@@ -15,7 +15,7 @@ class NotesViewController: UIViewController,BottomViewControllerDelegate {
     func reloadCollectionView() {
         loadCategory()
         categoryCollectionView.reloadData()
-    
+        
     }
     
     
@@ -43,26 +43,26 @@ class NotesViewController: UIViewController,BottomViewControllerDelegate {
         let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(_:)))
         categoryCollectionView?.addGestureRecognizer(gesture)
     }
-
-   @objc func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
-       guard let collectionView = categoryCollectionView else {
+    
+    @objc func handleLongPressGesture(_ gesture: UILongPressGestureRecognizer) {
+        guard let collectionView = categoryCollectionView else {
             return
-       }
-       switch gesture.state {
+        }
+        switch gesture.state {
         case .began:
-           guard let targetIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
-              return
-          }
-          collectionView.beginInteractiveMovementForItem(at: targetIndexPath)
-      case .changed:
-          collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: collectionView))
-      case .ended:
-          collectionView.endInteractiveMovement()
-
-      default:
-          collectionView.cancelInteractiveMovement()
-      }
-  }
+            guard let targetIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
+                return
+            }
+            collectionView.beginInteractiveMovementForItem(at: targetIndexPath)
+        case .changed:
+            collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: collectionView))
+        case .ended:
+            collectionView.endInteractiveMovement()
+            
+        default:
+            collectionView.cancelInteractiveMovement()
+        }
+    }
     fileprivate func delegateFunc() {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
@@ -102,8 +102,6 @@ class NotesViewController: UIViewController,BottomViewControllerDelegate {
             print("Long press at item: \(indexPath.row)")
         }
     }
-    /// Note Add Button Segue
-    /// - Parameter sender: button click
     @IBAction func addNoteButtonPressed(_ sender: UIButton) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "goToAddNoteID")
         self.show(vc!, sender: nil)
@@ -114,8 +112,6 @@ class NotesViewController: UIViewController,BottomViewControllerDelegate {
         loadCategory()
         loadNote()
     }
-    /// CoreData load func
-    /// - Parameter request: CoreData Note request
     func loadNote(with request: NSFetchRequest<Note> = Note.fetchRequest()) {
         do {
             notes = try context.fetch(request)
@@ -124,8 +120,6 @@ class NotesViewController: UIViewController,BottomViewControllerDelegate {
         }
         noteTableView.reloadData()
     }
-    /// Load Category Note
-    /// - Parameter request
     func loadCategoryNote(index: Int) {
         if categories[index].name! == "Genel" {
             DispatchQueue.main.async {
@@ -138,15 +132,12 @@ class NotesViewController: UIViewController,BottomViewControllerDelegate {
                 request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
                 self.loadNote(with: request)
             }
-          
         }
         let request : NSFetchRequest<Note> = Note.fetchRequest()
         request.predicate = NSPredicate(format: "upCategory.name MATCHES %@", categories[index].name!)
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         loadNote(with: request)
-     
     }
-    /// Note Save Func
     func saveNote() {
         do {
             try context.save()
@@ -156,8 +147,6 @@ class NotesViewController: UIViewController,BottomViewControllerDelegate {
         }
         self.noteTableView.reloadData()
     }
-    /// Category Add Button
-    /// - Parameter sender: Button
     @IBAction func addCategoryButtonPressed(_ sender: UIButton) {
         let myViewController = BottomViewController()
         myViewController.delegate = self
@@ -171,7 +160,7 @@ class NotesViewController: UIViewController,BottomViewControllerDelegate {
             childViewController: myViewController
         )
         presentBottomSheet(bottomSheetVC, completion: nil)
-
+        
     }
     /// Save Category Func
     func saveCategory() {
@@ -185,12 +174,9 @@ class NotesViewController: UIViewController,BottomViewControllerDelegate {
             self.categoryCollectionView.reloadData()
             self.noteTableView.reloadData()
         }
-       
-        
+
     }
-    
     /// CoreData  Load Category
-    /// - Parameter request: Category request
     func loadCategory(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
         do {
             categories = try context.fetch(request)
@@ -212,9 +198,8 @@ class NotesViewController: UIViewController,BottomViewControllerDelegate {
             }
             do {
                 saveNote()
-                print("silindi ve kayıt edildi.")
             } catch let error {
-                print("silinemedi ve kayıt olmadı")
+                print(error.localizedDescription)
             }
         }
     }
@@ -226,7 +211,7 @@ extension NotesViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return categories.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            
+        
         loadCategoryNote(index: indexPath.row)
         
     }
@@ -272,7 +257,7 @@ extension NotesViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }
         return context
     }
-
+    
     
 }
 //MARK: - Tableview Delegate and DataSource
@@ -282,10 +267,10 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if notes.count == 0 {
-        tableView.setEmptyView(title: "Notcunuz", message: "Notcunuz ayağınıza geldi.Not alınız.Yazınız. Bakınız...")
+            tableView.setEmptyView(title: "Note", message: "To list your notes, first add a category and note...")
         }
         else {
-        tableView.restore()
+            tableView.restore()
         }
         return notes.count
     }
@@ -303,7 +288,7 @@ extension NotesViewController: UITableViewDelegate, UITableViewDataSource {
         return 90
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteaction = UITableViewRowAction(style: .default, title: "Sil") { action, indexPath in
+        let deleteaction = UITableViewRowAction(style: .default, title: "Delete") { action, indexPath in
             
             let data = self.notes[indexPath.row] // items = [NSManagedObject]()
             self.context.delete(data)
@@ -323,13 +308,13 @@ extension NotesViewController: UISearchBarDelegate {
         request.predicate = NSPredicate(format: "title CONTAINS[cd] %@ OR noteText CONTAINS[cd] %@ OR upCategory.name CONTAINS[cd] %@", searchBar.text!,searchBar.text!,searchBar.text!)
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         loadNote(with: request)
-        }
+    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             loadNote()
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
-    }
+        }
     }
 }

@@ -7,10 +7,7 @@
 
 import UIKit
 import CoreData
-
-
 class NoteAddViewController: UIViewController {
-    
     var notes = [Note]()
     var categoriesPicker = [Category]()
     var selectedCategory : Category?
@@ -25,7 +22,6 @@ class NoteAddViewController: UIViewController {
     @IBOutlet weak var dropdownButton: UIButton!
     @IBOutlet weak var categoriesTextView: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +30,7 @@ class NoteAddViewController: UIViewController {
         loadCategory()
         pickerView.delegate = self
         pickerView.dataSource = self
-       // pickerView.backgroundColor = .systemGray5
     }
-    
     /// CoreData Load Category
     func loadCategory(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
         do {
@@ -46,7 +40,6 @@ class NoteAddViewController: UIViewController {
             print("Veriler yüklenirken bir sorun oldu \(error.localizedDescription)")
         }
     }
-    
     /// Picher Hidden
     @IBAction func isTappeddropdownButton(_ sender: Any) {
         pickerView.isHidden = false
@@ -56,7 +49,6 @@ class NoteAddViewController: UIViewController {
         picker.removeFromSuperview()
     }
     /// CoreData Note Save
-  
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         if titleTextView.text == "" {
             let refreshAlert = UIAlertController(title: "Warning", message: "Title field cannot be empty.", preferredStyle: UIAlertController.Style.alert)
@@ -86,12 +78,10 @@ class NoteAddViewController: UIViewController {
             present(refreshAlert, animated: true, completion: nil)
         }
     }
-    
     /// CoreData Note Save
     func saveNote() {
         do {
             try context.save()
-            print("Veri başarıyla kayıt edildi.")
         } catch {
             print("Kayıt aşamasında bir hata ile karışılaşıldı\(error.localizedDescription)")
         }
@@ -102,7 +92,6 @@ extension NoteAddViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return categoriesPicker.count
     }
@@ -114,7 +103,6 @@ extension NoteAddViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         selectedCategory = categoriesPicker[row]
         pickerView.isHidden = true
     }
-    
 }
 extension NoteAddViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
